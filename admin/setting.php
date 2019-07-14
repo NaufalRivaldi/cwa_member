@@ -2,6 +2,35 @@
     include "../koneksi.php";
     include "cek_login.php";
     $no = 1;
+
+    // readfolder
+    $folder = "json/";
+    if(is_dir($folder)){
+        if($open = opendir($folder)){
+            while(($file = readdir($open)) !== FALSE){
+                if($file !== '.' && $file !== '..'){
+                    $nf = explode('@', $file);
+                    $tgl = $nf[0];
+                    $nama_file = $file;
+                }
+            }
+        }
+    }
+
+    //read tgl
+    $sql = "SELECT last_updated FROM member limit 1";
+    $query = $con->query($sql);
+    while($data = mysqli_fetch_array($query)){
+        $tgl_member = $data['last_updated'];
+        $tgl_member = date('Y-m-d', strtotime($tgl_member));
+    }
+
+    // perbedaan tanggal
+    $tgl_now = new DateTime();
+    $tgl_last = new DateTime($tgl_member);
+    $diff = $tgl_now->diff($tgl_last);
+    $jml = $diff->days;
+
 ?>
 
 <!doctype html>
@@ -23,8 +52,10 @@
                 <div class="col-12">
                     <fieldset>
                         <legend>Set Data Json</legend>
-                        <a href="proses/data-member.php" class="btn btn-success">Update Data</a>
-                        <p class="text text-danger">Update data member pada web pesan terlebih dahulu!</p>
+                        <a href="proses/data-member.php" class="btn btn-success <?= ($jml > 0) ? 'disabled' : '' ?>">Update Data</a>
+                        <?php if($jml > 0): ?>
+                            <p class="text text-danger">Update data member pada web pesan terlebih dahulu!</p>
+                        <?php endif; ?>
                     </fieldset>
                 </div>
             </div>
@@ -46,8 +77,8 @@
                             <tbody>
                                 <tr>
                                     <td><?= $no++ ?></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><?= $nama_file; ?></td>
+                                    <td><?= $tgl; ?></td>
                                 </tr>
                             </tbody>
                         </table>
