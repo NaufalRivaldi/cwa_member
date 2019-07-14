@@ -9,5 +9,7 @@
         <a class="nav-item nav-link" href="pemenang.php">Pemenang</a>
         <a class="nav-item nav-link" href="setting.php">Setting</a>
         </div>
+
+        <a href="logout.php" class="nav-item btn btn-danger ml-auto">Logout</a>
     </div>
 </nav>
