@@ -6,6 +6,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .wreaper {
@@ -18,6 +19,11 @@ body {
 
 .konten {
     width: 30%;
+    height: auto;
+}
+
+.konten2 {
+    width: 50%;
     height: auto;
 }
 
