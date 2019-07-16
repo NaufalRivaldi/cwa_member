@@ -51,21 +51,24 @@
         }
     }
 
-    function shake(){
-        // $.getJSON("json/member.json", function(data){
-        //     $.each(data, function(key, val){
-        //         var id = setInterval(kocok, 10);
-        //         function kocok(){
-        //             if(val=="0"){
-        //                 clearInterval(id);
-        //             }else{
-        //                 var lucky = key[Math.floor((Math.random()*key.length) + 0)];
-        //                 console.log(val.kdmember);
-        //             }
-        //         }
-        //     });
-        // });
+    function switchHadiah(){
+        var id_hadiah = $('#hadiah').val();
+        $('.hadiah').val(id_hadiah);
+        $('#kdmember').val('');
+        $('#form-hadiah').removeClass('show');
+        $('#form-hadiah').addClass('hide');
+        $('#btn-hadiah').removeClass('hide');
+        $('#btn-hadiah').addClass('show');
+    }
 
+    function switchBtn(){
+        $('#form-hadiah').removeClass('hide');
+        $('#form-hadiah').addClass('show');
+        $('#btn-hadiah').removeClass('show');
+        $('#btn-hadiah').addClass('hide');
+    }
+
+    function shake(){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){

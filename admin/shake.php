@@ -18,12 +18,12 @@
                 </center>
                 <div class="group">
                     <!-- pilih hadiah -->
-                    <form action="" class="show">
+                    <form action="" id="form-hadiah" class="show">
                         <center>
                             <h4>Pilih Hadiah</h4>
                         </center>
                         <div class="form-group">
-                            <select name="id_hadiah" id="" class="form-control">
+                            <select name="" id="hadiah" class="form-control" onchange="switchHadiah()">
                                 <option value="">Pilih</option>
                                 <?php
                                     $sql = "SELECT * FROM tb_hadiah";
@@ -46,13 +46,14 @@
                         </div>
                     </form>
                     <button class="btn btn-warning btn-block btn-lg shake" onclick="showWinner()">Shake</button>
-                    <div class="hide">
+                    <div id="btn-hadiah" class="hide">
                         <center>
                             <br>
-                            <button class="btn btn-primary">Pilih Hadiah</button>
+                            <button class="btn btn-primary" onclick="switchBtn()">Pilih Hadiah</button>
                         </center>
                     </div>
                     <input type="hidden" name="val" class="val" value="0">
+                    <input type="hidden" name="id_hadiah" class="hadiah">
                     <p class="copy-right">&copy; Copyright 2019 - Citra Warna. Design by Naufal Rivaldi</p>
                 </div>
             </div>
