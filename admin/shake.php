@@ -24,7 +24,7 @@
                         </center>
                         <div class="form-group">
                             <select name="" id="hadiah" class="form-control" onchange="switchHadiah()">
-                                <option value="">Pilih</option>
+                                <option value="0">Pilih</option>
                                 <?php
                                     $sql = "SELECT * FROM tb_hadiah";
                                     $query = $con->query($sql);
@@ -44,6 +44,10 @@
                         <div class="form-group">
                             <input type="text" name="winner_box" class="form-custom" id="kdmember"  placeholder="xxx-xxxx Nama Member">
                         </div>
+                        
+                        <!-- hidden form -->
+                        <input type="hidden" name="kdmember" class="kdmember">
+                        <input type="hidden" name="id_hadiah" class="hadiah">
                     </form>
                     <button class="btn btn-warning btn-block btn-lg shake" onclick="showWinner()">Shake</button>
                     <div id="btn-hadiah" class="hide">
@@ -53,7 +57,6 @@
                         </center>
                     </div>
                     <input type="hidden" name="val" class="val" value="0">
-                    <input type="hidden" name="id_hadiah" class="hadiah">
                     <p class="copy-right">&copy; Copyright 2019 - Citra Warna. Design by Naufal Rivaldi</p>
                 </div>
             </div>

@@ -55,7 +55,13 @@
                         <a href="proses/data-member.php" class="btn btn-success <?= ($jml > 0) ? 'disabled' : '' ?>">Update Data</a>
                         <?php if($jml > 0): ?>
                             <p class="text text-danger">Update data member pada web pesan terlebih dahulu!</p>
-                        <?php endif; ?>
+                        <?php endif; ?><br><br>
+                        <?php if(!empty($_SESSION['flash'])): ?>
+                            <div class="alert alert-success" role="alert">
+                                <?= $_SESSION['flash'] ?>
+                                <?php unset($_SESSION['flash']) ?>
+                            </div>
+                        <?php endif ?>
                     </fieldset>
                 </div>
             </div>

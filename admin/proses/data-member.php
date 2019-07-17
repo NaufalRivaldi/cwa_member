@@ -2,8 +2,6 @@
     include "../../koneksi.php";
     include "../cek_login.php";
 
-    $date = date('Y-m-d');
-
     $sql = "SELECT k.kdmember, m.nm_member FROM kemungkinan k INNER JOIN member m ON k.kdmember = m.kdmember";
     $query = $con->query($sql);
     while($row = mysqli_fetch_array($query)){
@@ -16,7 +14,8 @@
 
     $jsonfile = json_encode($data, JSON_PRETTY_PRINT);
 
-    file_put_contents('../json/'.$date.'@member.json', $jsonfile);
+    file_put_contents('../json/member.json', $jsonfile);
+    $_SESSION['flash'] = "Data Telah Update";
     header('Location:../setting.php');
 
     // function

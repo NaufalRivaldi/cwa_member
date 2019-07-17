@@ -34,18 +34,22 @@
     var winner = '';
 
     function showWinner(){
-        console.log('yyee');
         if(val == "0"){
             $('.shake').html('Stop');
             $('.shake').removeClass('btn-warning');
             $('.shake').addClass('btn-danger');
+            $('.shake').addClass('post-member')
 
             val = 1;
             shake();
         }else{
+            // post data pemanang
+            postMember();
+
             $('.shake').html('Shake');
             $('.shake').removeClass('btn-danger');
             $('.shake').addClass('btn-warning');
+            $('.shake').removeClass('post-member')
 
             val = 0;
         }
@@ -79,12 +83,27 @@
                     clearInterval(id);
                 } else {
                     var lucky = member[Math.floor((Math.random()*member.length) + 0)];
-                    $('.form-custom').val(lucky.kdmember + " - " + lucky.nm_member);
+                    if(lucky.id_hadiah == 0){
+                        $('.form-custom').val(lucky.kdmember + " - " + lucky.nm_member);
+                        $('.kdmember').val(lucky.kdmember);
+                    }
                 }
             }
             }
         };
         xhttp.open("GET", "json/member.json", true);
         xhttp.send();
+    }
+
+    function postMember(){
+        var data = $('#form-member').serialize();
+        $.ajax({
+            type: 'POST',
+            url : 'proses/update-member.php',
+            data: data,
+            success: function(data){
+                console.log(data);
+            }
+        });
     }
 </script>

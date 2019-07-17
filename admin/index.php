@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!empty($_SESSION['user']) && $_SESSION['user'] == 'it'){
+        header('Location:http://localhost/pemenang/admin/dashboard.php');
+    }
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
