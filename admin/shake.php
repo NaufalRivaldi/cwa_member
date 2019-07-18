@@ -30,7 +30,7 @@
                                     $query = $con->query($sql);
                                     while($row = mysqli_fetch_array($query)){
                                 ?>
-                                <option value="<?= $row['id_hadiah'] ?>"><?= $row['nama_hadiah'] ?></option>
+                                <option value="<?= $row['id_hadiah'] ?>" nama="<?= $row['nama_hadiah'] ?>"><?= $row['nama_hadiah'] ?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -38,7 +38,7 @@
 
                     <!-- shake -->
                     <center>
-                        <h4>Undian Pemenang</h4>
+                        <h4>Undian Pemenang <div id="nama_hadiah"></div></h4>
                     </center>
                     <form method="POST" id="form-member">
                         <div class="form-group">

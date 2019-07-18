@@ -1,6 +1,7 @@
 <!-- Optional JavaScript -->
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="../js/validation.js"></script>
 
 <!-- datatable -->
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
@@ -57,6 +58,9 @@
 
     function switchHadiah(){
         var id_hadiah = $('#hadiah').val();
+        var nama_hadiah = $('#hadiah option:selected').attr('nama');
+        $('#nama_hadiah').html(nama_hadiah);
+
         $('.hadiah').val(id_hadiah);
         $('#kdmember').val('');
         $('#form-hadiah').removeClass('show');

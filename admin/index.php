@@ -17,15 +17,15 @@
             <div class="konten">
                 <img src="../img/logo.png" alt="logo-member" width="100%"><br>
                 <div class="group">
-                    <form method="POST" action="login.php" id="form-member">
+                    <form method="POST" action="login.php" id="form-member" onsubmit="valLogin()">
                         <center>
                             <h4>Login</h4>
                         </center>
                         <div class="form-group">
-                            <input type="text" name="username" class="form-custom2" id="kdmember"  placeholder="Username">
+                            <input type="text" name="username" class="form-custom2" id="username"  placeholder="Username">
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password" class="form-custom2" id="kdmember"  placeholder="Password">
+                            <input type="password" name="password" class="form-custom2" id="password"  placeholder="Password">
                         </div>
                         <button type="submit" class="btn btn-warning btn-block btn-lg view-btn">Login</button>
                     </form>
