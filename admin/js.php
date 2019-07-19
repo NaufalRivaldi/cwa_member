@@ -80,19 +80,20 @@
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){
-            var member = JSON.parse(this.responseText);
-            var id = setInterval(kocok, 10);
-            function kocok(){
-                if(val == 0){
-                    clearInterval(id);
-                } else {
-                    var lucky = member[Math.floor((Math.random()*member.length) + 0)];
-                    if(lucky.id_hadiah == 0){
-                        $('.form-custom').val(lucky.kdmember + " - " + lucky.nm_member);
-                        $('.kdmember').val(lucky.kdmember);
+                var member = JSON.parse(this.responseText);
+                var id = setInterval(kocok, 10);
+                function kocok(){
+                    if(val == 0){
+                        clearInterval(id);
+                    } else {
+                        var lucky = member[Math.floor((Math.random()*member.length) + 0)];
+                        if(lucky.id_hadiah == 0){
+                            $('.form-kd').val(lucky.kdmember);
+                            $('.form-mb').val(lucky.nm_member);
+                            $('.kdmember').val(lucky.kdmember);
+                        }
                     }
                 }
-            }
             }
         };
         xhttp.open("GET", "json/member.json", true);

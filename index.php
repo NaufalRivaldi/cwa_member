@@ -12,7 +12,7 @@
                 <div class="group">
                     <form method="POST" id="form-member">
                         <div class="form-group">
-                            <input type="text" name="kdmember" class="form-custom" id="kdmember"  placeholder="xxx-xxxx">
+                            <input type="text" name="kdmember" class="form-custom" id="kdmember"  placeholder="No Member : xxx-xxxx">
                         </div>
                     </form>
                     <button class="btn btn-warning btn-block btn-lg view-btn" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-coins"></i> Cek Poin</button>

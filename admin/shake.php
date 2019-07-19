@@ -14,7 +14,7 @@
         <div class="wreaper">
             <div class="konten2">
                 <center>
-                    <img src="../img/logo.png" alt="logo-member" width="70%">
+                    <img src="../img/logo.png" alt="logo-member" width="50%">
                 </center>
                 <div class="group">
                     <!-- pilih hadiah -->
@@ -38,11 +38,12 @@
 
                     <!-- shake -->
                     <center>
-                        <h4>Undian Pemenang <div id="nama_hadiah"></div></h4>
+                        <h2>Undian Pemenang <div id="nama_hadiah"></div></h2>
                     </center>
                     <form method="POST" id="form-member">
                         <div class="form-group">
-                            <input type="text" name="winner_box" class="form-custom" id="kdmember"  placeholder="xxx-xxxx Nama Member">
+                            <input type="text" name="winner_box" class="form-kd" id="kdmember"  placeholder="xxx-xxxx">
+                            <input type="text" name="winner_box" class="form-mb" id="kdmember"  placeholder="Nama Member">
                         </div>
                         
                         <!-- hidden form -->
