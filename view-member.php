@@ -1,5 +1,36 @@
 <?php
     include "koneksi.php";
+
+    // lokasi daftar
+    function cekLokasi($data){
+        $list = array(
+			"CW1" => "Citra Warna 1 Imam Bonjol",
+			"CW2" => "Citra Warna 2 Imam Bonjol",
+			"CW3" => "Citra Warna 3 Buluh Indah",
+			"CW4" => "Citra Warna 4 Canggu",
+			"CW5" => "Citra Warna 5 Teuku Umar Barat",
+			"CW6" => "Citra Warna 6 Sunset Road",
+			"CW7" => "Citra Warna 7 Gatot Subroto",
+			"CW8" => "Citra Warna 8 Ubud",
+			"CW9" => "Citra Warna 9 Mumbul Nusa Dua",
+			"CA0" => "Citra Warna 10 Mahendradatha",
+			"CA1" => "Citra Warna 11 Semabaung Gianyar",
+			"CA2" => "Citra Warna 12 Kediri Tabanan",
+			"CA3" => "Citra Warna 13 Panjer",
+			"CA4" => "Citra Warna 14 Dalung",
+			"CA5" => "Citra Warna 15 Singaraja",
+			"CA6" => "Citra Warna 16 Tibubeneng",
+			"CA7" => "Citra Warna 17 WR. Supratman",
+			"CA8" => "Citra Warna 18 Waturenggong",
+			"CA9" => "Citra Warna 19 Ahmad Yani",
+			"CL1" => "Citra Warna Lombok 1"
+		);
+
+		if(isset($list[$data]))
+			return $list[$data];
+		return false;
+    }
+
     $kdmember = $_POST['kdmember'];
     $text = explode('-', $kdmember);
 
@@ -25,7 +56,7 @@
                     <tr>
                         <td>Lokasi Daftar</td>
                         <td>:</td>
-                        <td>".$row['lokasi_daftar']."</td>
+                        <td>".cekLokasi($row['lokasi_daftar'])."</td>
                     </tr>
                     <tr>
                         <td>Total Point</td>

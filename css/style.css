@@ -22,6 +22,12 @@ body {
     height: auto;
 }
 
+.konten-new {
+    width: 100%;
+    height: auto;
+    margin-top: 10%;
+}
+
 .konten2 {
     width: 60%;
     height: auto;
