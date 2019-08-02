@@ -29,7 +29,7 @@ body {
 }
 
 .konten2 {
-    width: 60%;
+    width: 40%;
     height: auto;
 }
 
@@ -44,15 +44,16 @@ body {
 }
 
 .form-kd {
-    width: 20%;
+    width: 100%;
     height: 50px;
     margin-top: 3%;
     border: none;
     border-bottom: 2px solid #f1c40f;
-    font-size: 2em;
+    font-size: 3em;
     float: left;
     margin-bottom: 5%;
     margin-right: 5%;
+    text-align: center;
 }
 
 .form-mb {

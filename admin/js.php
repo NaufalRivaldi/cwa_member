@@ -89,7 +89,6 @@
                         var lucky = member[Math.floor((Math.random()*member.length) + 0)];
                         if(lucky.id_hadiah == 0){
                             $('.form-kd').val(lucky.kdmember);
-                            $('.form-mb').val(lucky.nm_member);
                             $('.kdmember').val(lucky.kdmember);
                         }
                     }
@@ -107,7 +106,8 @@
             url : 'proses/update-member.php',
             data: data,
             success: function(data){
-                console.log(data);
+                $('#mpemenang').modal('show');
+                $('.show-pemenang').html(data);
             }
         });
     }

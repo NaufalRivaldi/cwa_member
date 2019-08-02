@@ -5,8 +5,6 @@
     $id_hadiah = $_POST['id_hadiah'];
     $kdmember = $_POST['kdmember'];
 
-    echo $id_hadiah.$kdmember;
-
     $file = "../json/member.json";
     $member = file_get_contents($file);
     $data = json_decode($member, true);
@@ -20,4 +18,13 @@
 
     $jsonfile = json_encode($data, JSON_PRETTY_PRINT);
     $member = file_put_contents($file, $jsonfile);
+
+    // show data
+    $kode = $kdmember;
+    $kode = str_replace('-', '', $kode);
+    $sql = "SELECT nm_member FROM member WHERE kdmember LIKE '%".(int)$kode."%' LIMIT 1";
+    $query = $con->query($sql);
+    while($row = mysqli_fetch_array($query)){
+        echo $kdmember." - ".$row['nm_member'];
+    }
 ?>

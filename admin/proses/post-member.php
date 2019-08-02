@@ -20,13 +20,27 @@
         return $text;
     }
 
+    function getNama($kdmember){
+        $text = '';
+        Global $con;
+        $kode = $kdmember;
+        $kode = str_replace('-', '', $kode);
+        $sql = "SELECT nm_member FROM member WHERE kdmember LIKE '%".(int)$kode."%' LIMIT 1";
+        $query = $con->query($sql);
+        while($row = mysqli_fetch_array($query)){
+            $text = $row['nm_member'];
+        }
+        
+        return $text;
+    }
+
     $file = "../json/member.json";
     $member = file_get_contents($file);
     $data = json_decode($member, true);
     foreach($data as $key => $a){
         if(isset($data[$key+1])){
             if($data[$key+1]['kdmember']!=$a['kdmember'] && $a['id_hadiah'] != 0){
-                $sql2 = $sql2."('','".$a['kdmember']."','".$a['nm_member']."','".gethadiah($a['id_hadiah'])."'),";
+                $sql2 = $sql2."('','".$a['kdmember']."','".getNama($a['kdmember'])."','".gethadiah($a['id_hadiah'])."'),";
             }
         }
     }
