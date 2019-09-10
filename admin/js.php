@@ -33,27 +33,63 @@
     var winner_box = $('.form-custom').val();
     var val = $('.val').val();
     var winner = '';
+    var c = 0;
 
     function showWinner(){
-        if(val == "0"){
-            $('.shake').html('Stop');
-            $('.shake').removeClass('btn-warning');
-            $('.shake').addClass('btn-danger');
-            $('.shake').addClass('post-member')
+        var nama_hadiah = $('.nama_hadiah').val();
 
-            val = 1;
-            shake();
+        if(nama_hadiah != 'Parsel'){
+            if(val == "0"){
+                $('.shake').html('Stop');
+                $('.shake').removeClass('btn-warning');
+                $('.shake').addClass('btn-danger');
+                $('.shake').addClass('post-member')
+
+                val = 1;
+                shake();
+            }else{
+                // post data pemanang
+                postMember();
+
+                $('.shake').html('Mulai');
+                $('.shake').removeClass('btn-danger');
+                $('.shake').addClass('btn-warning');
+                $('.shake').removeClass('post-member')
+
+                val = 0;
+            }
         }else{
-            // post data pemanang
-            postMember();
+            var set = setInterval(count, 5000);
+            function count(){
+                // 101 == 50 Orang
+                if(c <= 101){
+                    if(val == "0"){
+                        $('.shake').html('Stop');
+                        $('.shake').removeClass('btn-warning');
+                        $('.shake').addClass('btn-danger');
+                        $('.shake').addClass('post-member')
 
-            $('.shake').html('Shake');
-            $('.shake').removeClass('btn-danger');
-            $('.shake').addClass('btn-warning');
-            $('.shake').removeClass('post-member')
+                        val = 1;
+                        shake();
+                    }else{
+                        // post data pemanang
+                        postMember();
 
-            val = 0;
+                        $('.shake').html('Mulai');
+                        $('.shake').removeClass('btn-danger');
+                        $('.shake').addClass('btn-warning');
+                        $('.shake').removeClass('post-member')
+
+                        val = 0;
+                    }
+                    c++;
+                }else{
+                    clearInterval(set);
+                    console.log('done!!s')
+                }
+            }
         }
+        
     }
 
     function switchHadiah(){
@@ -62,6 +98,7 @@
         $('#nama_hadiah').html(nama_hadiah);
 
         $('.hadiah').val(id_hadiah);
+        $('.nama_hadiah').val(nama_hadiah);
         $('#kdmember').val('');
         $('#form-hadiah').removeClass('show');
         $('#form-hadiah').addClass('hide');
@@ -89,7 +126,6 @@
                         var lucky = member[Math.floor((Math.random()*member.length) + 0)];
                         if(lucky.id_hadiah == 0){
                             $('.form-kd').val(lucky.kdmember);
-                            $('.form-mb').val(lucky.nm_member);
                             $('.kdmember').val(lucky.kdmember);
                         }
                     }
@@ -107,7 +143,8 @@
             url : 'proses/update-member.php',
             data: data,
             success: function(data){
-                console.log(data);
+                $('#mpemenang').modal('show');
+                $('.show-pemenang').html(data);
             }
         });
     }

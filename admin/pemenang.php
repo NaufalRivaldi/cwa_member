@@ -15,6 +15,20 @@
         return $text;
     }
 
+    function getNama($kdmember){
+        $text = '';
+        Global $con;
+        $kode = $kdmember;
+        $kode = str_replace('-', '', $kode);
+        $sql = "SELECT nm_member FROM member WHERE kdmember LIKE '%".(int)$kode."%' LIMIT 1";
+        $query = $con->query($sql);
+        while($row = mysqli_fetch_array($query)){
+            $text = $row['nm_member'];
+        }
+        
+        return $text;
+    }
+
 ?>
 
 <!doctype html>
@@ -75,7 +89,7 @@
                                 <tr>
                                     <td><?= $no++ ?></td>
                                     <td><?= $a['kdmember']; ?></td>
-                                    <td><?= $a['nm_member']; ?></td>
+                                    <td><?= getNama($a['kdmember']); ?></td>
                                     <td><?= gethadiah($a['id_hadiah']); ?></td>
                                 </tr>
                                 <?php }}} ?>

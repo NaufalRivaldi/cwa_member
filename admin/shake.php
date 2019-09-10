@@ -11,10 +11,10 @@
     </head>
     <body>
         <!-- konten -->
-        <div class="wreaper">
-            <div class="konten2">
+        <div class="wreaper2">
+            <div class="konten2" style="margin-top: 5%">
                 <center>
-                    <img src="../img/logo.png" alt="logo-member" width="50%">
+                    <img src="../img/logo.png" alt="logo-member" width="80%">
                 </center>
                 <div class="group">
                     <!-- pilih hadiah -->
@@ -43,14 +43,14 @@
                     <form method="POST" id="form-member">
                         <div class="form-group">
                             <input type="text" name="winner_box" class="form-kd" id="kdmember"  placeholder="xxx-xxxx">
-                            <input type="text" name="winner_box" class="form-mb" id="kdmember"  placeholder="Nama Member">
                         </div>
                         
                         <!-- hidden form -->
                         <input type="hidden" name="kdmember" class="kdmember">
                         <input type="hidden" name="id_hadiah" class="hadiah">
+                        <input type="hidden" name="nama_hadiah" class="nama_hadiah">
                     </form>
-                    <button class="btn btn-warning btn-block btn-lg shake" onclick="showWinner()">Shake</button>
+                    <button class="btn btn-warning btn-block btn-lg shake" onclick="showWinner()">Mulai</button>
                     <div id="btn-hadiah" class="hide">
                         <center>
                             <br>
@@ -63,6 +63,27 @@
             </div>
         </div>
         
+        <!-- modal -->
+        <div class="modal fade" id="mpemenang" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Selamat Kepada : </h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="show-pemenang text-center"></h3>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="text-warning">*Syarat dan ketentuan berlaku.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal -->
+
         <!-- JS -->
         <?php require "js.php" ?>
         <?php require "../modal.php" ?>
